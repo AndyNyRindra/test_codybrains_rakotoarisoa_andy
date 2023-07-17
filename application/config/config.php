@@ -76,7 +76,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'french';
+$config['language']	= 'english';
 
 /*
 |--------------------------------------------------------------------------
@@ -480,7 +480,7 @@ $config['compress_output'] = FALSE;
 |
 */
 $config['time_reference'] = 'local';
-
+date_default_timezone_set('Indian/Antananarivo');
 /*
 |--------------------------------------------------------------------------
 | Rewrite PHP Short Tags
