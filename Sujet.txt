@@ -1,0 +1,32 @@
+Conception et développement d'un mini application de gestion entreprise :
+# Page d'inscription : matricule , nom , prénoms, date d'embauche, poste ou emploi, email(facultatif : envoie de mail que le compte est bien créé) et code d'accès(généré automatiquement par le système)
+
+# Page d'authentification/login :  matricule et code d'accès
+
+Explication : matricule & code d'accès => Vérification matricule et code d'accès dans la BDD=> si utilisateur trouvé => authentifié alors redirection vers la page accueil et afficher le code d'accès de l'utilisateur
+
+# Page gestion utilisateurs(simple CRUD) :
+       # Ajout (comme sur l'inscription) accessible uniquement que pour l'administrateur
+       # Liste employé actif(matricule,nom, prénoms, post/emploi, date d'embauche)
+       # Modifier(matricule non modifiable) et supprimer(avec confirmation de suppression) [date de modification pour les 2 actions]
+       # Liste employé inactif => employé supprimé (possibilité de réactiver un utilisateur)
+
+# Afficher prénoms, nom et poste utilisateur connecté
+# message de succès ou erreur à chaque opération
+# Option de Déconnexion
+
+Date d'embauche : date d'inscription
+Utilisateur = employé
+
+BONUS :
+# UI/UX
+# Be creative
+# Code de qualité
+# Vous pouvez utiliser des librairies
+
+Techno : Codeigniter 3, PHP 7, BDD : mysql
+
+Fichier README pour tester le projet, fichier BDD sql
+
+Vous avez 2 à 3 jours pour faire le test.
+Vous n'avez pas besoin de finir toutes les fonctionnalités. D'habitude 50% à 75% des fonctionnalités développées suffisent pour réussir le test. À vous de voir quelles sont les fonctionnalités prioritaires à finir.
