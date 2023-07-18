@@ -24,6 +24,7 @@
                 $msg=(event.target.responseText!="")?event.target.responseText:"OK";
                 $msg = JSON.parse($msg);
                 if (!$msg["success"]) {
+                    console.log($msg["msg"]);
                     alert($msg["msg"]);
                 } else {
                     window.location.replace("<?php echo site_url($form_data['redirect']); ?>");

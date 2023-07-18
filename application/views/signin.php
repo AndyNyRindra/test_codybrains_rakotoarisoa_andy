@@ -12,12 +12,12 @@
 <h1>Signin</h1>
 <?php echo form_open('',$form_data['attributes']); ?>
 <div>
-    <?php echo form_label('Email', $form_data['email']['id']); ?>
-    <?php echo form_input($form_data['email']); ?>
+    <?php echo form_label('Registration number', $form_data['registration_number']['id']); ?>
+    <?php echo form_input($form_data['registration_number']); ?>
 </div>
 <div>
-    <?php echo form_label('Password', $form_data['password']['id']); ?>
-    <?php echo form_password($form_data['password']); ?>
+    <?php echo form_label('Access code', $form_data['access_code']['id']); ?>
+    <?php echo form_password($form_data['access_code']); ?>
 </div>
 <div>
     <?php echo form_submit('submit', 'Signin'); ?>

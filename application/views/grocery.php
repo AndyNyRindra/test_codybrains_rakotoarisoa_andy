@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<?php 
+<?php
 foreach($css_files as $file): ?>
 	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
 <?php endforeach; ?>
@@ -23,7 +23,9 @@ foreach($css_files as $file): ?>
 		<a href='<?php echo site_url('examples/multigrids')?>'>Multigrid [BETA]</a>
 		
 	</div>
-    <?php echo date('Y-m-d H:i:s') ?>
+    <?php if (isset($_SESSION['employee'])) {
+        echo ($_SESSION['employee'] -> job);
+    } ?>
 
 
 	<div style='height:20px;'></div>  
