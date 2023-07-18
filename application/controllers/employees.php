@@ -53,14 +53,23 @@ class employees extends CI_Controller
             $crud->set_table('employee');
             $crud->set_subject('Employee');
             $crud->set_relation('gender_id','gender','name');
-            $crud->display_as('gender_id','genders');
+            $crud->display_as('gender_id','Gender');
             $crud->set_relation('job_id','job','name');
-            $crud->display_as('job_id','jobs');
+            $crud->display_as('job_id','Job');
 
             $crud->fields('registration_number','first_name','last_name','email','gender_id','job_id','access_code', 'modification_date');
             $crud->change_field_type('access_code','invisible');
             $crud->change_field_type('registration_number','invisible');
             $crud->change_field_type('modification_date','invisible');
+
+            $crud->set_rules('first_name', 'First name', 'required|alpha_numeric_spaces|max_length[250]', array('required' => 'Please set a first name', 'alpha_numeric_spaces' => 'Please set a valid name.', 'max_length' => 'The name is too long.'));
+            $crud->set_rules('last_name', 'Last name', 'required|alpha_numeric_spaces|max_length[250]', array('required' => 'Please set a last name', 'alpha_numeric_spaces' => 'Please set a valid name.', 'max_length' => 'The name is too long.'));
+            $crud->set_rules('email', 'Email', 'required|valid_email|max_length[250]', array('required' => 'Please set an email', 'valid_email' => 'Please set a valid email.', 'max_length' => 'The email is too long.'));
+            $crud->set_rules('job_id', 'Job', 'required', array('required' => 'Please set a job'));
+            $crud->set_rules('gender_id','Gender', 'required', array('required' => 'Please set a gender'));
+
+
+
 
             $crud->unset_edit_fields(array('is_active','access_code','registration_number','hiring_date'));
             $crud->unset_clone();
