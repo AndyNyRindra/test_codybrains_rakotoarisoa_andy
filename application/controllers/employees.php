@@ -68,9 +68,11 @@ class employees extends CI_Controller
             $crud->unset_print();
 
             if (!isset($_SESSION['employee']) || $_SESSION['employee']->job_id != 0) {
-                $crud->unset_add();
                 $crud->unset_edit();
                 $crud->unset_delete();
+            }
+            if (isset($_SESSION['employee']) && $_SESSION['employee']->job_id != 0) {
+                $crud->unset_add();
             }
             $crud->columns('registration_number','first_name','last_name','email','hiring_date','gender_id','job_id','modification_date');
             $crud->where('is_active',1);
@@ -125,7 +127,7 @@ class employees extends CI_Controller
             $crud->callback_read_field('is_active',array($this,'_callback_is_active'));
             $output = $crud->render();
 
-            $this->load->view('grocery.php',(array)$output);
+            $this->load->view('inactive.php',(array)$output);
 
         }catch(Exception $e){
             show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -192,8 +194,6 @@ class employees extends CI_Controller
         $form_data['url'] = 'employees/login';
         $form_data['redirect'] = 'employees/management';
         $form_data['attributes'] = array('id' => 'signin');
-        $form_data['registration_number'] = array('name' => 'registration_number', 'id' => 'registration_number');
-        $form_data['access_code'] = array('name' => 'access_code', 'id' => 'access_code');
         $data['form_data'] = $form_data;
         $this->load->view('signin', $data);
     }
@@ -220,6 +220,14 @@ class employees extends CI_Controller
         }
         session_destroy();
         redirect('employees/signin');
+    }
+
+    public function signup() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        session_destroy();
+        redirect('employees/management/add');
     }
 
 }
