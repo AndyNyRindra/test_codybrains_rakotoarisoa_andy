@@ -159,6 +159,8 @@ class employees extends CI_Controller
         // update the registration number with the concatenation of EMP000... + primary key
 
         $this->db->update('employee', array('registration_number' => 'EMP' . str_pad($primary_key, 7, '0', STR_PAD_LEFT)), array('id' => $primary_key));
+        $this->load->model('Employee');
+        $this->Employee->send_mail($primary_key);
         return true;
     }
 
@@ -219,4 +221,5 @@ class employees extends CI_Controller
         session_destroy();
         redirect('employees/signin');
     }
+
 }
